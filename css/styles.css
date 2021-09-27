@@ -22,7 +22,7 @@ body {
 
 .table-item {
   display: table-cell;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -32,7 +32,7 @@ h1 {
   font-family: 'Rubik-ExtraBold';
   font-size: calc(23px + 1vmax);
   max-width: 500px;
-  padding: 5vh 1vh 2.5vh 1vh;
+  padding: 6vh 1vh 2.5vh 1vh;
   margin: 0 auto;
 }
 
