@@ -17,7 +17,7 @@ body {
 
 .table-container {
   display: table;
-  height: 100vh;
+  height: 94vh;
 }
 
 .table-item {
@@ -37,7 +37,7 @@ h1 {
 }
 
 #phone_img {
-  width: 75vw;
+  width: 85vw;
   min-width: 270px;
   max-width: 700px;
 }
