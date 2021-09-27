@@ -16,7 +16,7 @@ body {
 
 .table-container {
   display: table;
-  margin: 0 12px;
+  margin: 0 10px;
   height: 84vh;
 }
 
@@ -44,5 +44,6 @@ h1 {
 
 footer {
   font-size: calc(12px + 0.3vmin);
-  padding: 3vh 0 1vh 0;
+  padding: 3.4vh 0 1vh 0;
+  color: #bbb
 }
