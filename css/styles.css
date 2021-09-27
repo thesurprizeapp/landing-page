@@ -9,7 +9,6 @@
 }
 
 body {
-  margin: 0 10px;
   padding: 0;
   font-family: 'Rubik-Regular';
   text-align: center;
@@ -17,7 +16,8 @@ body {
 
 .table-container {
   display: table;
-  height: 94vh;
+  margin: 0 12px;
+  height: 84vh;
 }
 
 .table-item {
@@ -32,7 +32,7 @@ h1 {
   font-family: 'Rubik-ExtraBold';
   font-size: calc(23px + 1vmax);
   max-width: 500px;
-  padding: 3vh 1vh;
+  padding: 5vh 1vh 2.5vh 1vh;
   margin: 0 auto;
 }
 
