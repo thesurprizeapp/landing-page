@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'Rubik-ExtraBold';
+    src: url('../fonts/Rubik-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'Rubik-Regular';
+    src: url('../fonts/Rubik-Regular.ttf');
+}
+
+body {
+  margin: 0 10px;
+  padding: 0;
+  font-family: 'Rubik-Regular';
+  text-align: center;
+}
+
+.table-container {
+  display: table;
+  height: 100vh;
+}
+
+.table-item {
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+
+h1 {
+  font-family: 'Rubik-ExtraBold';
+  font-size: calc(23px + 1vmax);
+  max-width: 500px;
+  padding: 3vh 1vh;
+  margin: 0 auto;
+}
+
+#phone_img {
+  width: 75vw;
+  min-width: 270px;
+  max-width: 700px;
+}
+
+footer {
+  font-size: calc(12px + 0.3vmin);
+  padding: 3vh 0 1vh 0;
+}
