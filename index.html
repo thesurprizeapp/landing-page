@@ -18,35 +18,56 @@
 
   <link rel="stylesheet" href="css/styles.css?v=1.0">
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NW4QS547DC"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    function getMobileOperatingSystem() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      
+      // Windows Phone must come first because its UA also contains "Android"
+      if (/windows phone/i.test(userAgent)) {
+      return "Windows Phone";
+      }
+      
+      if (/android/i.test(userAgent)) {
+      return "Android";
+      }
+      
+      // iOS detection from: http://stackoverflow.com/a/...
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      return "iOS";
+      }
+      
+      return "unknown";
+      }
+      
+      
+    function DetectAndServe(){
+      let os = getMobileOperatingSystem();
+      if (os == "Android") {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.thesurprizeapp";
+      } else if (os == "iOS") {
+       window.location.href = "https://apps.apple.com/sg/app/the-surprize-app/id1629449803";
+      // } else if (os == "Windows Phone") {
+      //  window.location.href = "";
+      } else {
+       window.location.href = "https://www.thesurprizeapp.com";
+      }
+    }
 
-    gtag('config', 'G-NW4QS547DC');
+    DetectAndServe();
+
+  </script>
+
+  <script>
+    window.onload = DetectAndServe();
   </script>
 
 </head>
 
 <body>
-  <div class="table-container">
-    <div class="table-item">
-
-      <h1>Something exciting is coming your way!</h1>
-
-      <img src="images/surprize_phone_pop.png" id="phone_img" alt="The Surprize App">
-
-      <footer>
-        <p>&copy 2022 Surprize Pte Ltd</p>
-      </footer>
-
-    </div>
-  </div>
 
 </body>
 
-
+  Redirecting you...
+  If it doesn't work, please click <a href="https://thesurprizeapp.com">here</a>.
 
 </html>
