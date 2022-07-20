@@ -42,6 +42,7 @@
       
     function DetectAndServe(){
       let os = getMobileOperatingSystem();
+      console.log(os)
       if (os == "Android") {
         window.location.href = "https://play.google.com/store/apps/details?id=com.thesurprizeapp";
       } else if (os == "iOS") {
