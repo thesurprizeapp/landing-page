@@ -1,121 +1,124 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>The Surprize App</title>
-  <meta name="description" content="Try everything!">
-  <meta property="og:title" content="The Surprize App" />
-  <meta property="og:url" content="https://www.thesurprizeapp.com/" />
-  <meta property="og:description" content="Fun, Authentic, and Bold!">
-  <meta property="og:image" content="https://thesurprizeapp.com/logo.png"/>
-  <meta property="og:type" content="website" />
+    <title>The Surprize App</title>
+    <meta name="description" content="Try everything!" />
+    <meta property="og:title" content="The Surprize App" />
+    <meta property="og:url" content="https://www.thesurprizeapp.com/" />
+    <meta property="og:description" content="Fun, Authentic, and Bold!" />
+    <meta property="og:image" content="https://thesurprizeapp.com/logo.png" />
+    <meta property="og:type" content="website" />
 
-  <link rel="icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="css/styles.css?v=1.0" />
 
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=false;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '440262261402770');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=440262261402770&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q2MRN3LE9Y"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-Q2MRN3LE9Y');
-  </script>
-  <!-- End Google tag (gtag.js) -->
-
-  <script>
-    function getMobileOperatingSystem() {
-      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-      
-      // Windows Phone must come first because its UA also contains "Android"
-      if (/windows phone/i.test(userAgent)) {
-      return "Windows Phone";
-      }
-      
-      if (/android/i.test(userAgent)) {
-      return "Android";
-      }
-      
-      // iOS detection from: http://stackoverflow.com/a/...
-      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      return "iOS";
-      }
-      
-      return "unknown";
-      }
-      
-      
-    function DetectAndServe(){
-      let os = getMobileOperatingSystem();
-      console.log(os)
-      if (os == "Android") {
-        fbq('track', 'RedirectToPlayStore');
-        gtag('event', 'redirect_to_play_store', {
-          'event_callback': function() {
-            window.location.href = "https://play.google.com/store/apps/details?id=com.thesurprizeapp";
-          }
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+          eventCallback: function () {
+            DetectAndServe(); //
+          },
         });
-      } else if (os == "iOS") {
-        fbq('track', 'RedirectToAppStore');
-        gtag('event', 'redirect_to_app_store', {
-          'event_callback': function() {
-            window.location.href = "https://apps.apple.com/sg/app/the-surprize-app/id1629449803";
-          }
-        });
-      // } else if (os == "Windows Phone") {
-      //  window.location.href = "";
-      } else {
-        fbq('track', 'RedirectToWebsite');
-        gtag('event', 'redirect_to_websitee', {
-          'event_callback': function() {
-            window.location.href = "https://www.thesurprizeapp.com";
-          }
-        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-PXVXMB3");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Q2MRN3LE9Y"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
       }
-    }
+      gtag("js", new Date());
 
-  </script>
+      gtag("config", "G-Q2MRN3LE9Y");
+    </script>
+    <!-- End Google tag (gtag.js) -->
 
-  <script>
-    
+    <script>
+      function getMobileOperatingSystem() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-    setTimeout(function() {
-      DetectAndServe();
-    }, 120);
-    // window.onload = DetectAndServe();
-  </script>
+        // Windows Phone must come first because its UA also contains "Android"
+        if (/windows phone/i.test(userAgent)) {
+          return "Windows Phone";
+        }
 
-</head>
+        if (/android/i.test(userAgent)) {
+          return "Android";
+        }
 
-<body>
+        // iOS detection from: http://stackoverflow.com/a/...
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+          return "iOS";
+        }
 
-</body>
+        return "unknown";
+      }
 
-  Redirecting you...
-  If it doesn't work, please click <a href="https://thesurprizeapp.com">here</a>.
+      function DetectAndServe() {
+        let os = getMobileOperatingSystem();
+        console.log(os);
+        if (os == "Android") {
+          gtag("event", "redirect_to_play_store", {
+            event_callback: function () {
+              window.location.href =
+                "https://play.google.com/store/apps/details?id=com.thesurprizeapp";
+            },
+          });
+        } else if (os == "iOS") {
+          gtag("event", "redirect_to_app_store", {
+            event_callback: function () {
+              window.location.href =
+                "https://apps.apple.com/sg/app/the-surprize-app/id1629449803";
+            },
+          });
+          // } else if (os == "Windows Phone") {
+          //  window.location.href = "";
+        } else {
+          gtag("event", "redirect_to_website", {
+            event_callback: function () {
+              window.location.href = "https://www.thesurprizeapp.com";
+            },
+          });
+        }
+      }
+    </script>
+  </head>
 
+  <body></body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-PXVXMB3"
+      height="0"
+      width="0"
+      style="display: none; visibility: hidden"
+    ></iframe
+  ></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  Redirecting you... If it doesn't work, please click
+  <a href="https://thesurprizeapp.com">here</a
+  >.
 </html>
