@@ -87,14 +87,29 @@
       // } else if (os == "Windows Phone") {
       //  window.location.href = "";
       } else {
-       window.location.href = "https://www.thesurprizeapp.com";
+        gtag('event', 'redirect_to_website', {
+          'event_callback': function() {
+            window.location.href = "https://www.thesurprizeapp.com";
+          }
+        });
       }
     }
 
   </script>
 
   <script>
-    window.onload = DetectAndServe();
+    (function wait() {
+      // check for the generic script
+      // easiest check to prevent race condition
+      if (fbq.version >= "2.0") {
+        // now check for the custom script
+        if (fbq.loaded) {
+          DetectAndServe();
+        }
+      } else {
+        setTimeout(wait, 10);
+      }
+    })();
   </script>
 
 </head>
