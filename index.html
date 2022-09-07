@@ -27,7 +27,7 @@
           event: "gtm.js",
           eventCallback: function () {
             setTimeout(function () {
-              DetectAndServe();
+              window.onload = DetectAndServe();
             }, 120);
           },
         });
