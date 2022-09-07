@@ -101,11 +101,8 @@
     (function wait() {
       // check for the generic script
       // easiest check to prevent race condition
-      if (fbq.version >= "2.0") {
-        // now check for the custom script
-        if (fbq.loaded) {
-          DetectAndServe();
-        }
+      if ((typeof fbq !== 'undefined') && (fbq.version > '2.0') && (fbq.loaded)) {
+        DetectAndServe();
       } else {
         setTimeout(wait, 10);
       }
