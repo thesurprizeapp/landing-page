@@ -73,13 +73,15 @@
       let os = getMobileOperatingSystem();
       console.log(os)
       if (os == "Android") {
+        fbq('track', 'RedirectToPlayStore');
         gtag('event', 'redirect_to_play_store', {
           'event_callback': function() {
             window.location.href = "https://play.google.com/store/apps/details?id=com.thesurprizeapp";
           }
         });
       } else if (os == "iOS") {
-        gtag('event', 'redirect_to_play_store', {
+        fbq('track', 'RedirectToAppStore');
+        gtag('event', 'redirect_to_app_store', {
           'event_callback': function() {
             window.location.href = "https://apps.apple.com/sg/app/the-surprize-app/id1629449803";
           }
@@ -87,7 +89,8 @@
       // } else if (os == "Windows Phone") {
       //  window.location.href = "";
       } else {
-        gtag('event', 'redirect_to_website', {
+        fbq('track', 'RedirectToWebsite');
+        gtag('event', 'redirect_to_websitee', {
           'event_callback': function() {
             window.location.href = "https://www.thesurprizeapp.com";
           }
@@ -98,15 +101,12 @@
   </script>
 
   <script>
-    (function wait() {
-      // check for the generic script
-      // easiest check to prevent race condition
-      if ((typeof fbq !== 'undefined') && (fbq.version > '2.0') && (fbq.loaded)) {
-        DetectAndServe();
-      } else {
-        setTimeout(wait, 10);
-      }
-    })();
+    
+
+    setTimeout(function() {
+      DetectAndServe();
+    }, 120);
+    // window.onload = DetectAndServe();
   </script>
 
 </head>
