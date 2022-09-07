@@ -1,92 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>The Surprize App</title>
-  <meta name="description" content="Try everything!">
-  <meta property="og:title" content="The Surprize App" />
-  <meta property="og:url" content="https://www.thesurprizeapp.com/" />
-  <meta property="og:description" content="Fun, Authentic, and Bold!">
-  <meta property="og:image" content="https://thesurprizeapp.com/logo.png"/>
-  <meta property="og:type" content="website" />
+    <title>The Surprize App</title>
+    <meta name="description" content="Try everything!" />
+    <meta property="og:title" content="The Surprize App" />
+    <meta property="og:url" content="https://www.thesurprizeapp.com/" />
+    <meta property="og:description" content="Fun, Authentic, and Bold!" />
+    <meta property="og:image" content="https://thesurprizeapp.com/logo.png" />
+    <meta property="og:type" content="website" />
 
-  <link rel="icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="css/styles.css?v=1.0" />
 
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '440262261402770');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=440262261402770&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "440262261402770");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=440262261402770&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 
-  <script>
-    function getMobileOperatingSystem() {
-      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-      
-      // Windows Phone must come first because its UA also contains "Android"
-      if (/windows phone/i.test(userAgent)) {
-      return "Windows Phone";
+    <script>
+      function getMobileOperatingSystem() {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        // Windows Phone must come first because its UA also contains "Android"
+        if (/windows phone/i.test(userAgent)) {
+          return "Windows Phone";
+        }
+
+        if (/android/i.test(userAgent)) {
+          return "Android";
+        }
+
+        // iOS detection from: http://stackoverflow.com/a/...
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+          return "iOS";
+        }
+
+        return "unknown";
       }
-      
-      if (/android/i.test(userAgent)) {
-      return "Android";
+
+      function DetectAndServe() {
+        let os = getMobileOperatingSystem();
+        console.log(os);
+        if (os == "Android") {
+          window.location.href =
+            "https://play.google.com/store/apps/details?id=com.thesurprizeapp";
+        } else if (os == "iOS") {
+          window.location.href =
+            "https://apps.apple.com/sg/app/the-surprize-app/id1629449803";
+          // } else if (os == "Windows Phone") {
+          //  window.location.href = "";
+        } else {
+          window.location.href = "https://www.thesurprizeapp.com";
+        }
       }
-      
-      // iOS detection from: http://stackoverflow.com/a/...
-      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      return "iOS";
-      }
-      
-      return "unknown";
-      }
-      
-      
-    function DetectAndServe(){
-      let os = getMobileOperatingSystem();
-      console.log(os)
-      if (os == "Android") {
-        window.location.href = "https://play.google.com/store/apps/details?id=com.thesurprizeapp";
-      } else if (os == "iOS") {
-       window.location.href = "https://apps.apple.com/sg/app/the-surprize-app/id1629449803";
-      // } else if (os == "Windows Phone") {
-      //  window.location.href = "";
-      } else {
-       window.location.href = "https://www.thesurprizeapp.com";
-      }
-    }
+    </script>
 
-    DetectAndServe();
+    <script>
+      window.onload = DetectAndServe();
+    </script>
+  </head>
 
-  </script>
+  <body></body>
 
-  <script>
-    window.onload = DetectAndServe();
-  </script>
-
-</head>
-
-<body>
-
-</body>
-
-  Redirecting you...
-  If it doesn't work, please click <a href="https://thesurprizeapp.com">here</a>.
-
+  Redirecting you... If it doesn't work, please click
+  <a href="https://thesurprizeapp.com">here</a
+  >.
 </html>
