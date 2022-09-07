@@ -26,9 +26,9 @@
           "gtm.start": new Date().getTime(),
           event: "gtm.js",
           eventCallback: function () {
-            setTimeout(function () {
-              window.onload = DetectAndServe();
-            }, 5000);
+            window.onload = setTimeout(function () {
+              DetectAndServe();
+            }, 1200);
           },
         });
         var f = d.getElementsByTagName(s)[0],
@@ -37,7 +37,7 @@
         j.async = true;
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-PXVXMB3");
+      })(window, document, "script", "dataLayer", "GTM-M2GX7SW");
     </script>
     <!-- End Google Tag Manager -->
 
@@ -108,19 +108,19 @@
     </script>
   </head>
 
-  <body></body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe
-      src="https://www.googletagmanager.com/ns.html?id=GTM-PXVXMB3"
-      height="0"
-      width="0"
-      style="display: none; visibility: hidden"
-    ></iframe
-  ></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-  Redirecting you... If it doesn't work, please click
-  <a href="https://thesurprizeapp.com">here</a
-  >.
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-M2GX7SW"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      >
+      </iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    Redirecting you... If it doesn't work, please click
+    <a href="https://thesurprizeapp.com">here</a>.
+  </body>
 </html>
