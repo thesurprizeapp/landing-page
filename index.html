@@ -26,7 +26,9 @@
           "gtm.start": new Date().getTime(),
           event: "gtm.js",
           eventCallback: function () {
-            DetectAndServe(); //
+            setTimeout(function () {
+              DetectAndServe();
+            }, 120);
           },
         });
         var f = d.getElementsByTagName(s)[0],
